@@ -11,7 +11,7 @@ build:
     - image: aaron31/auth
       context: auth
       docker:
-        dockerfile: dockerfile
+        dockerfile: Dockerfile
       sync:
         manual:
           - src: 'src/**/*.ts'
@@ -19,8 +19,16 @@ build:
     - image: aaron31/client
       context: client
       docker:
-        dockerfile: dockerfile
+        dockerfile: Dockerfile
       sync:
         manual:
           - src: '**/*.js'
+            dest: .
+    - image: aaron31/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
             dest: .
